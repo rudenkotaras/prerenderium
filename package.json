@@ -1,0 +1,25 @@
+{
+  "name": "prerenderium",
+  "version": "0.0.1",
+  "description": "Render the page with puppeteer and cache",
+  "license": "MIT",
+  "author": {
+    "name": "Vano Devium",
+    "email": "vano@devium.me",
+    "url": "https://www.devium.me"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "@koa/router": "^10.1.0",
+    "keyv": "^4.0.3",
+    "koa": "^2.13.1",
+    "puppeteer": "^10.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12"
+  }
+}
