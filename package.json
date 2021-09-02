@@ -13,13 +13,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "@koa/router": "^10.1.0",
+    "@koa/router": "^10.1.1",
     "keyv": "^4.0.3",
     "koa": "^2.13.1",
+    "koa-compress": "^5.1.0",
     "puppeteer": "^10.2.0"
   },
   "devDependencies": {
-    "jest": "^27.0.6",
+    "jest": "^27.1.0",
     "nodemon": "^2.0.12"
   }
 }

@@ -5,14 +5,12 @@ app.listen(3000);
 process.on("unhandledRejection", (reason, p) => {
   stopBrowser();
   console.error("Unhandled Rejection at:", p, "reason:", reason);
-  process.exit(1);
+  setTimeoutAndExit();
 });
 
 process.on("SIGINT", function () {
   stopBrowser();
-  setTimeout(() => {
-    process.exit(1);
-  }, 500);
+  setTimeoutAndExit();
 });
 
 function stopBrowser() {
@@ -21,4 +19,10 @@ function stopBrowser() {
   } catch (e) {
     console.error("Problem with browser stopping...");
   }
+}
+
+function setTimeoutAndExit() {
+  setTimeout(() => {
+    process.exit(1);
+  }, 500);
 }
