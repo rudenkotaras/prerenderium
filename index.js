@@ -1,28 +1,5 @@
-const app = require("./lib/app");
+require("dotenv").config();
 
-app.listen(3000);
+const app = require("./lib/app")(process.env.WORKERS || 1);
 
-process.on("unhandledRejection", (reason, p) => {
-  stopBrowser();
-  console.error("Unhandled Rejection at:", p, "reason:", reason);
-  setTimeoutAndExit();
-});
-
-process.on("SIGINT", function () {
-  stopBrowser();
-  setTimeoutAndExit();
-});
-
-function stopBrowser() {
-  try {
-    (async () => app.context.renderer.getBrowser().close())();
-  } catch (e) {
-    console.error("Problem with browser stopping...");
-  }
-}
-
-function setTimeoutAndExit() {
-  setTimeout(() => {
-    process.exit(1);
-  }, 500);
-}
+app.listen(process.env.PORT || 3000);
