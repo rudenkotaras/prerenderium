@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+
+  prerenderium:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: prerenderium
+    cap_add:
+      - SYS_ADMIN
+    user: "1000:1000"
+    environment:
+      - "WORKERS=1"
+      - "DEBUG=prerenderium*"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app:rw
+    networks:
+      - prerenderium-network
+
+networks:
+  prerenderium-network:
