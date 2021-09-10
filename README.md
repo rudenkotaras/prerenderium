@@ -3,7 +3,7 @@
 ### How to build
 
 ```
-docker-compose build prerenderium
+docker-compose build --no-cache prerenderium
 ```
 
 ### How to start
