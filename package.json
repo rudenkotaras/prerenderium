@@ -1,7 +1,7 @@
 {
-  "name": "prerenderium",
+  "name": "contenter",
   "version": "0.0.1",
-  "description": "Render the page with puppeteer and cache",
+  "description": "Render and get content of the page with puppeteer and cache",
   "license": "MIT",
   "author": {
     "name": "Vano Devium",

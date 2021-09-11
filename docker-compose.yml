@@ -2,22 +2,22 @@ version: "3"
 
 services:
 
-  prerenderium:
+  contenter:
     build:
       context: .
       dockerfile: Dockerfile
     restart: always
-    container_name: prerenderium
+    container_name: contenter
     cap_add:
       - SYS_ADMIN
     user: "1000:1000"
     environment:
       - "WORKERS=1"
-      - "DEBUG=prerenderium*"
+      - "DEBUG=contenter*"
     ports:
       - "3000:3000"
     networks:
-      - prerenderium-network
+      - contenter-network
 
 networks:
-  prerenderium-network:
+  contenter-network:

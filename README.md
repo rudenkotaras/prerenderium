@@ -1,4 +1,4 @@
-# prerenderium
+# Contenter
 
 ### Environment variables
 
@@ -12,11 +12,11 @@
 ### How to build
 
 ```
-docker-compose build --no-cache prerenderium
+docker-compose build --no-cache contenter
 ```
 
 ### How to start
 
 ```
-docker-compose up -d prerenderium
+docker-compose up -d contenter
 ```

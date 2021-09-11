@@ -1,5 +1,5 @@
 require("dotenv").config();
-const debug = require("debug")("prerender");
+const debug = require("debug")("contenter");
 
 const PORT = process.env.PORT || 3000;
 const app = require("./lib/app")(process.env.WORKERS || 1);
