@@ -1,7 +1,7 @@
 const Koa = require("koa");
 const Router = require("@koa/router");
 const compress = require("koa-compress");
-const Contenter = require("./contenter");
+const Contenter = require("./lib/contenter");
 
 const REQUEST_PATTERN = "/:url(.*)";
 
@@ -16,20 +16,14 @@ function init(workers = 1) {
   const contenter = new Contenter(workers);
 
   router.get(REQUEST_PATTERN, async (ctx) => {
-    const options = {
-      headers: ctx.headers,
-    };
-    const output = await contenter.render(parseUrlString(ctx), options);
-    if (Array.isArray(output)) {
-      ctx.status = output[0];
-      return;
-    }
-    ctx.body = output;
+    const {status, content} = await contenter.get(parseUrlString(ctx), {headers: ctx.headers});
+    ctx.status = status;
+    ctx.body = content;
   });
 
   router.del(REQUEST_PATTERN, async (ctx) => {
-    const output = await contenter.forget(parseUrlString(ctx));
-    ctx.status = output[0];
+    const {status} = await contenter.forget(parseUrlString(ctx));
+    ctx.status = status;
   });
 
   app.use(compress());

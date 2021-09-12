@@ -10,7 +10,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "start": "nodemon init.js",
+    "test": "jest",
+    "pretty": "prettier -w lib init.js"
   },
   "dependencies": {
     "@koa/router": "^10.1.1",
