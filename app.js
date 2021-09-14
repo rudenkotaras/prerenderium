@@ -16,13 +16,15 @@ function init(workers = 1) {
   const contenter = new Contenter(workers);
 
   router.get(REQUEST_PATTERN, async (ctx) => {
-    const {status, content} = await contenter.get(parseUrlString(ctx), {headers: ctx.headers});
+    const { status, content } = await contenter.get(parseUrlString(ctx), {
+      headers: ctx.headers,
+    });
     ctx.status = status;
     ctx.body = content;
   });
 
   router.del(REQUEST_PATTERN, async (ctx) => {
-    const {status} = await contenter.forget(parseUrlString(ctx));
+    const { status } = await contenter.forget(parseUrlString(ctx));
     ctx.status = status;
   });
 
