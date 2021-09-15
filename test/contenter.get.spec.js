@@ -7,7 +7,7 @@ const CACHED_CONTENT = "cached content";
 const ORIGINAL_CONTENT = "original content";
 
 describe("Contenter.get()", () => {
-  test("it should skip the cache:get(url, {}, true)", async () => {
+  test("it should skip the cache:get(url, {}, false)", async () => {
     const contenter = new Contenter(1);
 
     await contenter.cache.set(GOOGLE, CACHED_CONTENT);
@@ -16,7 +16,7 @@ describe("Contenter.get()", () => {
       Promise.resolve(ORIGINAL_CONTENT)
     );
 
-    const result = await contenter.get(GOOGLE, null, true);
+    const result = await contenter.get(GOOGLE, null, false);
 
     expect(result).toBeInstanceOf(Content);
     expect(result.status).toBe(200);
